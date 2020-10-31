@@ -1,24 +1,24 @@
-# Write a program that asks the user a string containing only numeric chars, computing and outputting the corresponding integer value,
+# Write a program that asks the user a string containing only numeric characters, computes and outputs the corresponding integer value,
 # or False if input contains non-numeric characters.
 
-#Write it without using "int()" buit-in cast.
+#Write it without using "int()" built-in cast.
 
 BASE = 10
-wrongCharFound = False
+validInput = True
 s = str(raw_input())
 i = 0
 powerOfTen=1
 result = 0
-while i<len(s) and not wrongCharFound:
+while i<len(s) and validInput:
     digit = s[i]
     if digit<'0' or digit>'9':
-        wrongCharFound = True
+        validInput = False
     else:
-        intValue = ord(digit)-48
+        intValue = ord(digit)-48   #magic ????
         result = result * BASE + intValue
         i += 1
 
-if wrongCharFound:
-    print(False)
-else:
+if validInput:
     print(result)
+else:
+    print(validInput)
